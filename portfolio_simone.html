@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simone Lopes — UX Designer</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235B30C8'/%3E%3Cstop offset='50%25' stop-color='%233B82F6'/%3E%3Cstop offset='100%25' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='20' y='20' width='60' height='60' rx='12' fill='url(%23g)' transform='rotate(15 50 50)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>Simone Lopes</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="#experience" data-i18n="nav.exp">Experiência</a></li>
+      <li><a href="#education" data-i18n="nav.edu">Formação</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Skills e Cursos</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contato</a></li>
+    </ul>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button id="lang-btn" type="button" aria-label="Toggle language">EN</button>
+      <div class="hamburger" id="ham" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mob-menu">
+    <a href="#about" onclick="closeMobile()" data-i18n="nav.about">Sobre</a>
+    <a href="#experience" onclick="closeMobile()" data-i18n="nav.exp">Experiência</a>
+    <a href="#education" onclick="closeMobile()" data-i18n="nav.edu">Formação</a>
+    <a href="#skills" onclick="closeMobile()" data-i18n="nav.skills">Skills e Cursos</a>
+    <a href="#projects" onclick="closeMobile()" data-i18n="nav.projects">Projetos</a>
+    <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contato</a>
+  </div>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="noise"></div>
+
+    <div class="hero-left">
+      <!--  <div class="hero-badge" data-i18n="hero.badge">Disponível para oportunidades</div> -->
+
+      <h1 class="hero-name">
+        <span>Simone Lopes</span>
+      </h1>
+
+      <p class="hero-title" data-i18n="hero.title">UX Designer &amp; Data Analyst · São Paulo</p>
+
+      <p class="hero-headline" id="headline-text"></p>
+
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 3l14 9-14 9V3z" />
+          </svg>
+          <span data-i18n="hero.cta1">Ver Projetos</span>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span data-i18n="hero.cta2">Entrar em Contato</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-frame">
+        <img src="./assets/foto-simone.jpg" alt="Foto de Simone Lopes">
+      </div>
+
+      <div class="float-tag float-tag-1">
+        <span class="dot" style="background:#8B5CF6"></span>
+        <span data-i18n="tag1">Product Design</span>
+      </div>
+      <div class="float-tag float-tag-2">
+        <span class="dot" style="background:#EC4899"></span>
+        <span data-i18n="tag2">Data Analytics</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span data-i18n="scroll">scroll</span>
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="about-text fade-up">
+      <div class="section-label" data-i18n="about.label">Sobre mim</div>
+      <h2 class="section-title" data-i18n="about.title">Design com <strong>propósito</strong>.<br> Dados com
+        <strong>impacto</strong>.
+      </h2>
+      <p data-i18n="about.p1"> Profissional em transição para UX/UI, unindo experiência em <strong>análise de dados,
+          governança e melhoria de processos</strong> com foco em usabilidade e entendimento do usuário.</p>
+      <p data-i18n="about.p2">Formanda em Sistemas de Informação com técnico em Desenvolvimento de
+        Sistemas, minha abordagem combina análise, criatividade e inovação, explorando a <strong>interseção entre dados
+          e design</strong>
+        para desenvolver soluções mais intuitivas e impactantes.</p>
+    </div>
+
+    <div class="about-stats fade-up" style="transition-delay:.15s">
+      <div class="stat-card">
+        <div class="stat-num">Dados</div>
+        <div class="stat-label" data-i18n="stat1">Para entender problemas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">UX</div>
+        <div class="stat-label" data-i18n="stat2">Para criar soluções</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Processos</div>
+        <div class="stat-label" data-i18n="stat3">Para gerar eficiência</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Pesquisa</div>
+        <div class="stat-label" data-i18n="stat4">para validar decisões</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Tecnologia</div>
+        <div class="stat-label" data-i18n="stat5">para impulsionar resultados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Pessoas</div>
+        <div class="stat-label" data-i18n="stat6">Pessoas no centro de tudo</div>
+      </div>
+    </div>
+
+    <div class="about-extra fade-up" style="transition-delay:.2s">
+      <div class="about-extra-item">
+        <div class="about-extra-number gradient">8° semestre</div>
+        <div class="about-extra-text">Em Sistemas de Informação.</div>
+      </div>
+      <div class="about-extra-item">
+        <div class="about-extra-number gradient">+6 projetos</div>
+        <div class="about-extra-text">Da ideação à implementação.</div>
+      </div>
+      <div class="about-extra-item">
+        <div class="about-extra-number gradient">+10 tecnologias</div>
+        <div class="about-extra-text">Com total domínio. </div>
+      </div>
+      <div class="about-extra-item">
+        <div class="about-extra-number gradient">+2 anos</div>
+        <div class="about-extra-text">De experiência corporativa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ────────────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="section-label fade-up" data-i18n="exp.label">Trajetória</div>
+    <h2 class="section-title fade-up" data-i18n="exp.title">Experiência <strong>Profissional</strong></h2>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-date" data-i18n="exp1.date">Ago 2025 – Atual</div>
+        <div class="timeline-role" data-i18n="exp1.role">Associate I — Análise de Dados</div>
+        <div class="timeline-company">PwC Brasil</div>
+        <ul class="timeline-body">
+          <li data-i18n="exp1.b1">Projetos de governança, qualidade e rastreabilidade de dados, garantindo organização e
+            padronização de informações críticas.</li>
+          <li data-i18n="exp2.b3">Precificação de ativos financeiros e uso do terminal Bloomberg para suporte a
+            atividades de tesouraria.</li>
+          <li data-i18n="exp1.b3">Estruturação de fluxos, mapeamento de processos e análise de oportunidades de melhoria
+            contínua.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up" style="transition-delay:.1s">
+        <div class="timeline-date" data-i18n="exp2.date">Fev 2024 – Ago 2025</div>
+        <div class="timeline-role" data-i18n="exp2.role">Estagiária — Análise de Dados</div>
+        <div class="timeline-company">PwC Brasil</div>
+        <ul class="timeline-body">
+          <li data-i18n="exp2.b1">Desenvolvimento de dashboards e relatórios com comunicação visual objetiva, usando
+            Power BI e Workiva.</li>
+          <li data-i18n="exp2.b2">Documentação de fluxos, processos e requisitos técnicos para times multidisciplinares.
+          </li>
+          <li data-i18n="exp2.b4">Precificação de ativos financeiros e uso do terminal Bloomberg para suporte a
+            atividades de tesouraria.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up" style="transition-delay:.2s">
+        <div class="timeline-date" data-i18n="exp3.date">Jan 2019 – Jan 2024</div>
+        <div class="timeline-role" data-i18n="exp3.role">Operadora de Caixa</div>
+        <div class="timeline-company">Mercadinho Anana</div>
+        <ul class="timeline-body">
+          <li data-i18n="exp3.b1">Atendimento direto ao cliente, desenvolvendo empatia, comunicação clara e resolução
+            rápida de problemas — base da minha visão centrada no usuário.</li>
+          <li data-i18n="exp3.b2">Organização de processos internos e suporte a clientes em diferentes contextos e
+            perfis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EDUCATION ─────────────────────────────────────────────────── -->
+  <section id="education">
+    <div class="section-label fade-up" data-i18n="edu.label">Formação</div>
+    <h2 class="section-title fade-up" data-i18n="edu.title">Formação <strong>Acadêmica</strong></h2>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-date" data-i18n="edu1.date">2023 – atual</div>
+        <div class="timeline-role" data-i18n="edu1.role">Bacharelado em Sistemas de Informação</div>
+        <div class="timeline-company" data-i18n="edu1.company">São Paulo Tech School - 8° Semestre</div>
+        <ul class="timeline-body">
+          <li data-i18n="edu1.b1">Previsão de conclusão em dezembro de 2026</li>
+          <li data-i18n="edu1.b2"> +6 Linguagens de programação, Análise de Dados, Sistemas Operacionais, Gestão de
+            Projetos, Modelagem de processos.</li>
+          <li data-i18n="edu1.b3"> +2 Semestres de estudo intensivo de Experiência do Usuário: UX/UI, Figma, Design
+            Thinking, Wireframing, Prototipagem, Design System, UX Research, Personas entre outros. </li>
+          <li data-i18n="edu1.b4"> +4 Projetos anuais completos, incluindo TCC, feitos desde a ideação até a
+            implementação. </li>
+        </ul>
+      </div>
+
+      <div class="timeline-item fade-up" style="transition-delay:.1s">
+        <div class="timeline-date" data-i18n="edu2.date">2020 – 2022</div>
+        <div class="timeline-role" data-i18n="edu2.role">Técnico em Desenvolvimento de Sistemas</div>
+        <div class="timeline-company" data-i18n="edu2.company">ETEC Cidade Tiradentes - Centro Paula Souza</div>
+        <ul class="timeline-body">
+          <li data-i18n="edu2.b1">Formação técnica com fundamentos em lógica de programação, prototipação e experiência
+            do usuário.</li>
+          <li data-i18n="edu2.b2">Desenvolvimento web com HTML, CSS, JavaScript e banco de dados relacional</li>
+          <li data-i18n="edu2.b3">Trabalho de Conclusão de Curso (TCC): Desenvolvimento de aplicativo, site e sistema
+            embarcado. Finalizado com nota máxima.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ────────────────────────────────────────────────────── -->
+  <section id="skills">
+    <div class="section-label fade-up" data-i18n="skills.label">Competências</div>
+    <h2 class="section-title fade-up" data-i18n="skills.title">Hard Skills &amp; <strong>Ferramentas</strong></h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+        <div class="skill-name" data-i18n="sk1.name">UI Design</div>
+        <div class="skill-desc" data-i18n="sk1.desc">Construção de interfaces com componentização, design system,
+          responsividade e atenção à hierarquia visual para comunicar com clareza.</div>
+        <div class="skill-pills"><span class="skill-pill">Figma</span><span class="skill-pill">Design System</span><span
+            class="skill-pill">Responsividade</span></div>
+      </div>
+
+      <div class="skill-card fade-up" style="transition-delay:.05s">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><line x1="16" y1="16" x2="21" y2="21"/></svg></div>
+        <div class="skill-name" data-i18n="sk2.name">UX Research</div>
+        <div class="skill-desc" data-i18n="sk2.desc">Entrevistas com usuários, testes de usabilidade, proto-personas e
+          análise de dados qualitativos para embasar decisões de design.</div>
+        <div class="skill-pills"><span class="skill-pill">Entrevistas</span><span class="skill-pill">Usability
+            Test</span><span class="skill-pill">Personas</span></div>
+      </div>
+
+      <div class="skill-card fade-up" style="transition-delay:.1s">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5 2 5-2 5 2v10l-5-2-5 2-5-2V6z"/></svg></div>
+        <div class="skill-name" data-i18n="sk3.name">Product Thinking</div>
+        <div class="skill-desc" data-i18n="sk3.desc">Análise de problemas sob a perspectiva de negócio, usuário e tecnologia para desenvolver produtos digitais com propósito e impacto.</div>
+        <div class="skill-pills"><span class="skill-pill">User Journey</span><span class="skill-pill">Discovery</span><span class="skill-pill">BPMN</span></div>
+      </div>
+
+      <div class="skill-card fade-up" style="transition-delay:.15s">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.5 17 3-8 8.5 7-17-17z"/></svg></div>
+        <div class="skill-name" data-i18n="sk4.name">Prototipação</div>
+        <div class="skill-desc" data-i18n="sk4.desc">Wireframes, protótipos navegáveis em baixa e alta fidelidade,
+          fluxos de navegação e microinterações que validam hipóteses rapidamente.</div>
+        <div class="skill-pills"><span class="skill-pill">Alta Fidelidade</span><span
+            class="skill-pill">Wireframe</span><span class="skill-pill">Microinterações</span></div>
+      </div>
+
+      <div class="skill-card fade-up" style="transition-delay:.2s">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h4v-7H4z"/><path d="M10 19h4v-12h-4z"/><path d="M16 19h4v-4h-4z"/></svg></div>
+        <div class="skill-name" data-i18n="sk5.name">Dados & Analytics</div>
+        <div class="skill-desc" data-i18n="sk5.desc">SQL, Python, R e ETL aplicados à análise de dados e
+          governança — diferencial que transforma métricas em decisões de design.</div>
+        <div class="skill-pills"><span class="skill-pill">SQL</span><span class="skill-pill">R</span><span
+            class="skill-pill">Python</span></div>
+      </div>
+
+      <div class="skill-card fade-up" style="transition-delay:.25s">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><path d="M14 4h-4v16h4"/></svg></div>
+        <div class="skill-name" data-i18n="sk6.name">Front-end Development</div>
+        <div class="skill-desc" data-i18n="sk6.desc">Desenvolvimento de interfaces modernas e acessíveis, transformando protótipos em experiências funcionais e responsivas.</div>
+        <div class="skill-pills"><span class="skill-pill">HTML</span><span class="skill-pill">CSS</span><span
+            class="skill-pill">JavaScript</span></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── SOFT SKILLS ────────────────────────────────────────────────── -->
+  <section id="soft-skills">
+    <div class="section-label fade-up" data-i18n="soft.label">Soft Skills</div>
+    <h2 class="section-title fade-up" data-i18n="soft.title">Competências <strong>Interpessoais</strong></h2>
+
+    <div class="soft-grid">
+      <button class="soft-pill fade-up" data-i18n="soft1">Comunicação Estratégica</button>
+      <button class="soft-pill fade-up" style="transition-delay:.05s" data-i18n="soft2">Trabalho em equipe</button>
+      <button class="soft-pill fade-up" style="transition-delay:.1s" data-i18n="soft3">Empatia</button>
+      <button class="soft-pill fade-up" style="transition-delay:.15s" data-i18n="soft4">Resolução de problemas</button>
+      <button class="soft-pill fade-up" style="transition-delay:.2s" data-i18n="soft5">Pensamento Crítico</button>
+      <button class="soft-pill fade-up" style="transition-delay:.25s" data-i18n="soft6">Adaptabilidade</button>
+      <button class="soft-pill fade-up" style="transition-delay:.3s" data-i18n="soft7">Colaboração Multidisciplinar</button>
+      <button class="soft-pill fade-up" style="transition-delay:.35s" data-i18n="soft8">Aprendizado Contínuo</button>
+      <button class="soft-pill fade-up" style="transition-delay:.4s" data-i18n="soft9">Storytelling Estratégico</button>
+      <button class="soft-pill fade-up" style="transition-delay:.45s" data-i18n="soft10">Liderança Colaborativa</button>
+      <button class="soft-pill fade-up" style="transition-delay:.5s" data-i18n="soft11">Tomada de Decisão Baseada em Evidências</button>
+
+    </div>
+  </section>
+
+  <!-- ─── CURSOS EXTRA-CURRICULARES ─────────────────────────────────── -->
+  <section id="courses">
+    <div class="section-label fade-up" data-i18n="courses.label">Cursos</div>
+    <h2 class="section-title fade-up" data-i18n="courses.title">Cursos <strong>Extra-Curriculares</strong></h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M5 9h14"/></svg></div>
+        <div class="skill-name" data-i18n="course1.name">Transformação Digital, UX, Negócios, Projetos e Marketing</div>
+        <div class="skill-desc" data-i18n="course1.provider"><strong>{Reprograma}</strong></div>
+        <div class="skill-desc" data-i18n="course1.issued"><strong>Emitida em: </strong>Agosto de 2022</div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v12H6z"/><path d="M9 16l3-3 3 3"/></svg></div>
+        <div class="skill-name" data-i18n="course2.name">Cultura, Transformação Digital e Resolução de Problemas</div>
+        <div class="skill-desc" data-i18n="course2.provider"><strong>{Reprograma}</strong></div>
+        <div class="skill-desc" data-i18n="course2.issued"><strong>Emitida em: </strong>Julho de 2022</div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 18h20"/></svg></div>
+        <div class="skill-name" data-i18n="course3.name">Ética no Desenvolvimento de Sistemas</div>
+        <div class="skill-desc" data-i18n="course3.provider"><strong>Fundação Bradesco</strong></div>
+        <div class="skill-desc" data-i18n="course3.issued"><strong>Emitida em: </strong>Dezembro de 2022</div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15h12a5 5 0 0 0 0-10 7 7 0 0 0-13 3 4 4 0 0 0 1 8z"/></svg></div>
+        <div class="skill-name" data-i18n="course4.name">Gestão de Infraestrutura de TI</div>
+        <div class="skill-desc" data-i18n="course4.provider"><strong>FIAP</strong></div>
+        <div class="skill-desc" data-i18n="course4.issued"><strong>Emitida em: </strong>Fevereiro de 2024</div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M6 10H4"/><path d="M6 14H4"/><path d="M18 10h2"/><path d="M18 14h2"/><path d="M10 4V6"/><path d="M14 4V6"/><path d="M10 18v2"/><path d="M14 18v2"/></svg></div>
+        <div class="skill-name" data-i18n="course5.name">IA: Explorando o Potencial da Inteligência Artificial Generativa</div>
+        <div class="skill-desc" data-i18n="course5.provider"><strong>Alura</strong></div>
+        <div class="skill-desc" data-i18n="course5.issued"><strong>Emitida em: </strong>Novembro de 2025</div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v6c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/><path d="M4 13v2c0 1.66 3.58 3 8 3s8-1.34 8-3v-2"/></svg></div>
+        <div class="skill-name" data-i18n="course6.name">SQL para Análise de Dados: Do Básico ao Avançado</div>
+        <div class="skill-desc" data-i18n="course6.provider"><strong>Udemy</strong></div>
+        <div class="skill-desc" data-i18n="course6.issued"><strong>Emitida em: </strong>Dezembro de 2025</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────────────── -->
+  <section id="projects">
+    <div class="section-label fade-up" data-i18n="proj.label">Portfólio</div>
+    <h2 class="section-title fade-up" data-i18n="proj.title">Projetos <strong>Selecionados</strong></h2>
+
+    <div class="projects-grid">
+
+      <!-- Card 1 -->
+      <div class="project-card fade-up" style="transition-delay:.2s">
+        <div class="project-thumb project-thumb-image1">
+          <span class="project-thumb-label" data-i18n="proj1.thumb">E-commerce + Dashboard</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name"><span data-i18n="proj1.name">ZKFOOD - Pedidos de Comida Online</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:.25rem;"><path d="M8 2h8l2 5H6l2-5z"/><path d="M10 7v11"/><path d="M14 7v11"/><path d="M7 18h10"/></svg></h3>
+          <p class="project-desc" data-i18n="proj1.desc">Plataforma de pedidos online desenvolvida para otimizar a
+            comunicação entre clientes, atendentes e cozinha. O projeto teve foco em experiência do usuário,
+            acessibilidade e eficiência operacional, combinando design responsivo, integração com CRM e dashboards
+            analíticos para apoiar a tomada de decisão.</p>
+          <div class="project-tags">
+            <span class="tag" data-i18n="tag.programming">Programação</span>
+            <span class="tag" data-i18n="tag.uxWriting">UX Writing</span>
+            <span class="tag" data-i18n="tag.responsiveDesign">Design Responsivo</span>
+            <span class="tag" data-i18n="tag.designThinking">Design Thinking</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.figma.com/design/2QPPXtKKDqcJnMdDjZxjLN/ZKFood?node-id=497-3132&t=1BOkknbd1DfYokgm-1"
+              class="project-link" target="_blank">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 3l14 9-14 9V3z" />
+              </svg>
+              <span data-i18n="btn.figma">Ver no Figma</span>
+            </a>
+            <a href="https://github.com/zkfood/Front_End" class="project-link" target="_blank">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg>
+              <span data-i18n="btn.github">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="project-card fade-up" style="transition-delay:.1s">
+        <div class="project-thumb project-thumb-image2">
+          <span class="project-thumb-label" data-i18n="proj2.thumb">People Operations + Dashboard</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name"><span data-i18n="proj2.name">TrackPoint - Gestão Unificada da Jornada de Trabalho</span></h3>
+          <p class="project-desc" data-i18n="proj2.desc">Plataforma desenvolvida para centralizar o controle de jornada, horas extras e alocação em projetos. A solução combina experiência do usuário, visualização de dados e monitoramento em tempo real para apoiar gestores na tomada de decisões, reduzir riscos operacionais e aumentar a eficiência dos processos internos.</p>
+          <div class="project-tags">
+            <span class="tag" data-i18n="tag.programming">Programação</span>
+            <span class="tag" data-i18n="tag.uxWriting">UX Writing</span>
+            <span class="tag" data-i18n="tag.responsiveDesign">Design Responsivo</span>
+            <span class="tag" data-i18n="tag.designThinking">Design Thinking</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.figma.com/design/PvWpeNZY9zmOyk5iFOhJqN/Trackpoint?node-id=148-957&t=GBxYPJfbdVpLvDXb-1" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 3l14 9-14 9V3z" />
+              </svg>
+              <span data-i18n="btn.figma">Ver no Figma</span>
+            </a>
+            <a href="https://github.com/orgs/TrackPoint-Grupo-1/repositories" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg>
+              <span data-i18n="btn.github">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+            <!-- Card 3 -->
+      <div class="project-card fade-up" style="transition-delay:.2s">
+        <div class="project-thumb project-thumb-image4">
+          <span class="project-thumb-label" data-i18n="proj3.thumb">Internet of Things</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name"><span data-i18n="proj3.name">Automate — Gerenciamento de plantas IOT</span></h3>
+          <p class="project-desc" data-i18n="proj3.desc">Sistema IoT desenvolvido para monitorar variáveis ambientais em plantações, como umidade e temperatura. A solução automatiza a irrigação com base em dados coletados em tempo real e disponibiliza informações por meio de um aplicativo, apoiando o controle de qualidade e a tomada de decisão no cultivo.</p>
+          <div class="project-tags">
+            <span class="tag" data-i18n="tag.embeddedSystems">Sistemas Embarcados</span>
+            <span class="tag" data-i18n="tag.uxWriting">UX Writing</span>
+            <span class="tag" data-i18n="tag.responsiveDesign">Design Responsivo</span>
+            <span class="tag" data-i18n="tag.designThinking">Design Thinking</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.figma.com/design/cEIxltjQEOKWCsl9bjZAyz/ProjetoMastic---Automate--TCC-?node-id=215-220&t=RE96rQexoKpKzPdu-1" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 3l14 9-14 9V3z" />
+              </svg>
+              <span data-i18n="btn.figma">Ver no Figma</span>
+            </a>
+            <!-- <a href="#" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg>
+              <span data-i18n="btn.github">GitHub</span>
+            </a> -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="project-card fade-up" style="transition-delay:.2s">
+        <div class="project-thumb project-thumb-image3">
+
+          <span class="project-thumb-label" data-i18n="proj4.thumb">System Monitoring + Dashboard</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name"><span data-i18n="proj4.name">GuardIAn - Monitoramento com IA</span></h3>
+          <p class="project-desc" data-i18n="proj4.desc">Plataforma de proteção digital que utiliza Inteligência Artificial para monitorar e classificar conteúdos sensíveis acessados por crianças e adolescentes. A solução combina análise contextual, experiência do usuário e visualização de dados para apoiar responsáveis em uma navegação mais segura.</p>
+          <div class="project-tags">
+            <span class="tag" data-i18n="tag.inProgress">Em andamento</span>
+            <span class="tag" data-i18n="tag.tcc">TCC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.figma.com/design/ISzLbXe3LpSoQcx7LzLC36/Untitled?node-id=0-1&t=jdBQcSYefv9a1if7-1" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 3l14 9-14 9V3z" />
+              </svg>
+              <span data-i18n="btn.figma">Ver no Figma</span>
+            </a>
+            <a href="" class="project-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg>
+              <span data-i18n="btn.github">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="contact-inner fade-up">
+      <div class="section-label" data-i18n="contact.label">Contato</div>
+      <h2 class="contact-headline" data-i18n="contact.headline">Vamos criar algo <em
+          style="font-style:italic;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">incrível</em>
+        juntos?</h2>
+      <p class="contact-sub" data-i18n="contact.sub">Estou aberta a oportunidades em UX Design, Product Design e áreas
+        correlatas. Adoro conversas sobre dados, design e impacto real no usuário.</p>
+      <div class="contact-actions">
+        <a href="mailto:simone.lopes.santos2@gmail.com?subject=Contato%20pelo%20Portf%C3%B3lio&body=Olá%20Simone%2C%0D%0A%0D%0AVi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20oportunidades%20em%20UX%20Design.%20%0D%0A%0D%0AAtenciosamente%2C%0D%0A"
+          class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span data-i18n="contact.email">Enviar e-mail</span>
+        </a>
+        <a href="Curriculo-SimoneLopes.pdf" download="Curriculo-Simone-Lopes.pdf" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 3v12" />
+            <path d="M8 11l4 4 4-4" />
+            <path d="M5 21h14" />
+          </svg>
+          <span data-i18n="contact.download">Baixar currículo</span>
+        </a>
+        <a href="https://www.linkedin.com/in/simonels" target="_blank" class="btn-primary">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <!-- <a href="https://github.com" target="_blank" class="btn-ghost">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.16 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.7.11 2.5.32 1.9-1.3 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .26.18.57.69.47A10 10 0 0022 12c0-5.52-4.48-10-10-10z" />
+          </svg>
+          <span>GitHub</span>
+        </a> -->
+      </div>
+
+      <div class="contact-links">
+        <a href="tel:+5511968023976" class="social-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          <span>(11) 9 6802-3976</span>
+        </a>
+        <a href="mailto:simone.lopes.santos2@gmail.com?subject=Contato%20pelo%20Portf%C3%B3lio&body=Olá%20Simone%2C%0D%0A%0D%0AVi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20oportunidades%20em%20UX%20Design.%20%0D%0A%0D%0AAtenciosamente%2C%0D%0A"
+          class="social-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span>simone.lopes.santos2@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>Simone Lopes</span>
+    </div>
+    <p data-i18n="footer.copy">© 2026 Simone Lopes· Desenvolvido com muita dedicação.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
